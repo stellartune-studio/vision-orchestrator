@@ -1,0 +1,24 @@
+node_modules/
+dist/
+data/
+.env
+*.log
+.DS_Store
+.devin/*.local.json
+.devin/**/*.local.*
+scripts/ui-verify/shots/
+runtime/
+
+# Local kaname agent config (vision-director.toml is tracked)
+.kaname/config.toml
+.kaname/agents/fedora-dev.toml
+
+# Model weights and local credentials are never packaged.
+*.safetensors
+*.ckpt
+*.pt
+*.pth
+*.onnx
+*.gguf
+.env.*
+!.env.example

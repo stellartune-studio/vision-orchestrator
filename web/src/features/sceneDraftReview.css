@@ -1,0 +1,13 @@
+.scene-review { margin-top: 16px; border-top: 1px solid var(--border); padding-top: 12px; }
+.scene-review h4 { margin: 4px 0; font-size: var(--fs-lg); }
+.scene-review h5 { margin: 8px 0 4px; font-size: var(--fs-base); }
+.scene-review-item { margin: 8px 0; padding: 10px; border: 1px solid var(--border); border-radius: 8px; }
+.scene-review-item pre { white-space: pre-wrap; max-height: 180px; overflow: auto; font-size: var(--fs-md); }
+.scene-review-fields { display: grid; gap: 8px; }
+.scene-review-fields label, .scene-review-issues > label, .scene-review-resume label { display: grid; gap: 4px; }
+.scene-review textarea { min-height: 58px; resize: vertical; }
+.scene-review select, .scene-review textarea { width: 100%; }
+.scene-review-issues, .scene-review-resume { margin: 12px 0; padding: 10px; background: var(--surface-subtle); border-radius: 8px; }
+.scene-review-conflict { margin: 12px 0; padding: 12px; border: 1px solid var(--border); border-radius: 8px; }
+.scene-review-compare { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; margin: 10px 0; }
+.scene-review-compare pre { max-height: 300px; overflow: auto; white-space: pre-wrap; overflow-wrap: anywhere; padding: 8px; background: var(--surface-subtle); border-radius: 6px; font-size: var(--fs-md); }

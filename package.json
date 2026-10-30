@@ -1,0 +1,16 @@
+{
+  "name": "vision-orchestrator",
+  "private": true,
+  "version": "0.1.0",
+  "license": "Apache-2.0",
+  "type": "module",
+  "engines": {
+    "node": "24.22.1"
+  },
+  "packageManager": "pnpm@12.11.2",
+  "scripts": {
+    "dev": "pnpm --parallel --filter @vo/server --filter @vo/web dev",
+    "test": "pnpm --filter @vo/server --filter @vo/web test",
+    "typecheck": "pnpm -r typecheck"
+  }
+}

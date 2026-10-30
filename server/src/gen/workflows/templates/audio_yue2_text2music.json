@@ -1,0 +1,206 @@
+{
+  "33_15": {
+    "class_type": "CheckpointLoaderSimple",
+    "inputs": {
+      "ckpt_name": "yue2_3b_int8_convrot.safetensors"
+    }
+  },
+  "33_24": {
+    "class_type": "YuE2GenerateABC",
+    "inputs": {
+      "clip": [
+        "33_15",
+        1
+      ],
+      "style": [
+        "33_36",
+        0
+      ],
+      "lyrics": [
+        "33_37",
+        0
+      ],
+      "seed": [
+        "33_34",
+        0
+      ],
+      "mode": "full",
+      "max_abc_tokens": 8192,
+      "temperature": 0.7,
+      "top_p": 0.9,
+      "top_k": 30,
+      "repetition_penalty": 1.005,
+      "penalty_window": 100
+    }
+  },
+  "33_14": {
+    "class_type": "PreviewAny",
+    "inputs": {
+      "source": [
+        "33_30",
+        0
+      ]
+    }
+  },
+  "33_30": {
+    "class_type": "ComfySwitchNode",
+    "inputs": {
+      "on_false": [
+        "33_32",
+        0
+      ],
+      "on_true": [
+        "33_24",
+        0
+      ],
+      "switch": [
+        "33_31",
+        0
+      ]
+    }
+  },
+  "33_32": {
+    "class_type": "PrimitiveString",
+    "inputs": {
+      "value": ""
+    }
+  },
+  "33_25": {
+    "class_type": "YuE2GenerateMusic",
+    "inputs": {
+      "clip": [
+        "33_15",
+        1
+      ],
+      "style": [
+        "33_36",
+        0
+      ],
+      "lyrics": [
+        "33_37",
+        0
+      ],
+      "abc": [
+        "33_14",
+        0
+      ],
+      "seed": [
+        "33_34",
+        0
+      ],
+      "mode": "full",
+      "max_duration": 120,
+      "temperature": 1,
+      "top_p": 0.95,
+      "top_k": 100,
+      "repetition_penalty": 1.2,
+      "cfg_scale": 1
+    }
+  },
+  "33_31": {
+    "class_type": "PrimitiveBoolean",
+    "inputs": {
+      "value": true
+    }
+  },
+  "33_18": {
+    "class_type": "ConditioningZeroOut",
+    "inputs": {
+      "conditioning": [
+        "33_25",
+        0
+      ]
+    }
+  },
+  "33_23": {
+    "class_type": "PreviewAny",
+    "inputs": {
+      "source": [
+        "33_25",
+        1
+      ]
+    }
+  },
+  "33_8": {
+    "class_type": "KSampler",
+    "inputs": {
+      "model": [
+        "33_15",
+        0
+      ],
+      "positive": [
+        "33_25",
+        0
+      ],
+      "negative": [
+        "33_18",
+        0
+      ],
+      "latent_image": [
+        "33_5",
+        0
+      ],
+      "seed": [
+        "33_34",
+        0
+      ],
+      "steps": 32,
+      "cfg": 1,
+      "sampler_name": "dpm_2",
+      "scheduler": "sgm_uniform",
+      "denoise": 1
+    }
+  },
+  "33_5": {
+    "class_type": "EmptyYuE2LatentAudio",
+    "inputs": {
+      "seconds": [
+        "33_25",
+        1
+      ],
+      "batch_size": 1
+    }
+  },
+  "33_9": {
+    "class_type": "VAEDecodeAudio",
+    "inputs": {
+      "samples": [
+        "33_8",
+        0
+      ],
+      "vae": [
+        "33_15",
+        2
+      ]
+    }
+  },
+  "33_34": {
+    "class_type": "SeedNode",
+    "inputs": {
+      "seed": 0
+    }
+  },
+  "33_36": {
+    "class_type": "PrimitiveStringMultiline",
+    "inputs": {
+      "value": "Upbeat indie pop with warm female vocals, bright electric guitars, punchy drums, melodic bass, and subtle synth layers. Catchy and energetic, with an uplifting summer atmosphere, a memorable chorus, and polished modern production."
+    }
+  },
+  "33_37": {
+    "class_type": "PrimitiveStringMultiline",
+    "inputs": {
+      "value": "[Verse]\nMorning light across the window\nCity waking down below\nI can hear the streets are calling\nFeels like somewhere we should go\n\n[Chorus]\nRun with me into the sunlight\nLeave the shadows far behind\nWe don't need to know tomorrow\nTonight the whole world feels alive\n\n[Verse]\nRadio playing through the open door\nLaughing like we did before\nEvery mile becomes a memory\nAnd I just want a little more\n\n[Chorus]\nRun with me into the sunlight\nLeave the shadows far behind\nWe don't need to know tomorrow\nTonight the whole world feels alive"
+    }
+  },
+  "10": {
+    "class_type": "SaveAudioAdvanced",
+    "inputs": {
+      "audio": [
+        "33_9",
+        0
+      ],
+      "filename_prefix": "audio/YuE2",
+      "format": "flac"
+    }
+  }
+}

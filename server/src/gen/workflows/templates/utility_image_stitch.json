@@ -1,0 +1,105 @@
+{
+  "12": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "angle_1.png",
+      "upload": "image"
+    }
+  },
+  "13": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "angle_2.png",
+      "upload": "image"
+    }
+  },
+  "16": {
+    "class_type": "ImageStitch",
+    "inputs": {
+      "image1": [
+        "12",
+        0
+      ],
+      "image2": [
+        "13",
+        0
+      ],
+      "direction": "right",
+      "match_image_size": true,
+      "spacing_width": 0,
+      "spacing_color": "white"
+    }
+  },
+  "21": {
+    "class_type": "ResizeImageMaskNode",
+    "inputs": {
+      "input": [
+        "18",
+        0
+      ],
+      "resize_type": "scale dimensions",
+      "resize_type.width": 2048,
+      "resize_type.height": 2048,
+      "resize_type.crop": "center",
+      "scale_method": "lanczos"
+    }
+  },
+  "18": {
+    "class_type": "ImageStitch",
+    "inputs": {
+      "image1": [
+        "16",
+        0
+      ],
+      "image2": [
+        "17",
+        0
+      ],
+      "direction": "down",
+      "match_image_size": true,
+      "spacing_width": 0,
+      "spacing_color": "white"
+    }
+  },
+  "17": {
+    "class_type": "ImageStitch",
+    "inputs": {
+      "image1": [
+        "14",
+        0
+      ],
+      "image2": [
+        "15",
+        0
+      ],
+      "direction": "right",
+      "match_image_size": true,
+      "spacing_width": 0,
+      "spacing_color": "white"
+    }
+  },
+  "19": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": [
+        "21",
+        0
+      ],
+      "filename_prefix": "ComfyUI"
+    }
+  },
+  "14": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "angle_3.png",
+      "upload": "image"
+    }
+  },
+  "15": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "angle_4.png",
+      "upload": "image"
+    }
+  }
+}

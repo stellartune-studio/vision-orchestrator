@@ -1,0 +1,45 @@
+{
+  "1": {
+    "inputs": { "ckpt_name": "v1-5-pruned-emaonly-fp16.safetensors" },
+    "class_type": "CheckpointLoaderSimple"
+  },
+  "2": {
+    "inputs": { "text": "PLACEHOLDER_PROMPT", "clip": ["1", 1] },
+    "class_type": "CLIPTextEncode"
+  },
+  "3": {
+    "inputs": { "text": "", "clip": ["1", 1] },
+    "class_type": "CLIPTextEncode"
+  },
+  "4": {
+    "inputs": { "image": "PLACEHOLDER_REF_IMAGE", "upload": true },
+    "class_type": "LoadImage"
+  },
+  "5": {
+    "inputs": { "pixels": ["4", 0], "vae": ["1", 2] },
+    "class_type": "VAEEncode"
+  },
+  "6": {
+    "inputs": {
+      "seed": 0,
+      "steps": 20,
+      "cfg": 8.0,
+      "sampler_name": "euler",
+      "scheduler": "normal",
+      "denoise": 0.85,
+      "model": ["1", 0],
+      "positive": ["2", 0],
+      "negative": ["3", 0],
+      "latent_image": ["5", 0]
+    },
+    "class_type": "KSampler"
+  },
+  "7": {
+    "inputs": { "samples": ["6", 0], "vae": ["1", 2] },
+    "class_type": "VAEDecode"
+  },
+  "9": {
+    "inputs": { "filename_prefix": "vo_ref", "images": ["7", 0] },
+    "class_type": "SaveImage"
+  }
+}

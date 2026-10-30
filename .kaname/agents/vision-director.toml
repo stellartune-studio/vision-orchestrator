@@ -1,0 +1,51 @@
+# Vision Orchestrator director profile — the narrowest possible scope.
+#
+# The model only *replies* with text plus an optional fenced json block:
+# either {"proposals": [...]} for blueprint changes, or
+# {"amendment": {"content": ...}} when the input asks for a document
+# revision. The server validates and saves them as unconfirmed
+# revisions. This agent therefore needs NO tools, NO file writes, and
+# NO commands. Invoked by the server as:
+#   kaname run --agent vision-director --input-file - --json
+enabled = true
+# `chatgpt` resolves through ~/.kaname/config.toml — Kaname owns
+# provider/credential resolution; Vision Orchestrator never reads
+# credentials. Keep the model aligned with the provider's configured
+# model (gpt-6-luna on this setup).
+provider = "chatgpt"
+model = "gpt-6-luna"
+system_prompt = """inline:You are the production assistant of "Vision Orchestrator"
+(制作設計図). The user is the director (監督). You consult, propose, and
+wait for approval. Never treat your own proposal as agreed.
+
+Rules:
+- Reply in Japanese, concisely, as a collaborator preparing production
+  material with the director.
+- You receive the current blueprint state (approved items, pending
+  proposals, undecided items, pinned characters) inside the input.
+  Trust it over conversation history.
+- When you have concrete suggestions, append ONE fenced json block
+  containing {"proposals": [{"item_id": "...", "content": "..."}]}
+  using only item_id values shown in the state. Otherwise omit it.
+- Document-revision mode: when the input instead presents a "Document
+  under revision" and a revision directive, append ONE fenced json
+  block containing {"amendment": {"content": "<the FULL revised
+  document body>"}} — the complete new body, not a diff. Do not emit
+  a proposals block in this mode.
+- You have no tools and cannot read or write files. Proposals stay
+  unconfirmed until the user approves them.
+"""
+allow_write = false
+allow_command = false
+tools = []
+
+[limits]
+# Inert while `tools` is empty; kept tight so a future re-enable starts
+# from the narrowest values, not the defaults.
+max_file_bytes = 8192
+max_list_depth = 1
+max_list_entries = 16
+max_output_bytes = 4096
+max_command_args = 8
+default_command_timeout_ms = 5000
+max_command_timeout_ms = 10000

@@ -1,0 +1,176 @@
+{
+  "2": {
+    "class_type": "PrimitiveStringMultiline",
+    "inputs": {
+      "value": "1"
+    }
+  },
+  "6": {
+    "class_type": "PreviewAny",
+    "inputs": {
+      "source": [
+        "3",
+        1
+      ]
+    }
+  },
+  "8": {
+    "class_type": "PrimitiveInt",
+    "inputs": {
+      "value": 0
+    }
+  },
+  "10": {
+    "class_type": "PrimitiveFloat",
+    "inputs": {
+      "value": 1.5
+    }
+  },
+  "11": {
+    "class_type": "PreviewAny",
+    "inputs": {
+      "source": [
+        "10",
+        0
+      ]
+    }
+  },
+  "12": {
+    "class_type": "PreviewAny",
+    "inputs": {
+      "source": [
+        "9",
+        0
+      ]
+    }
+  },
+  "13": {
+    "class_type": "PreviewAny",
+    "inputs": {
+      "source": [
+        "11",
+        0
+      ]
+    }
+  },
+  "14": {
+    "class_type": "ComfyMathExpression",
+    "inputs": {
+      "values.a": [
+        "8",
+        0
+      ],
+      "expression": "a"
+    }
+  },
+  "15": {
+    "class_type": "PreviewAny",
+    "inputs": {
+      "source": [
+        "14",
+        2
+      ]
+    }
+  },
+  "16": {
+    "class_type": "PreviewAny",
+    "inputs": {
+      "source": [
+        "14",
+        0
+      ]
+    }
+  },
+  "17": {
+    "class_type": "PreviewAny",
+    "inputs": {
+      "source": [
+        "14",
+        1
+      ]
+    }
+  },
+  "20": {
+    "class_type": "PreviewAny",
+    "inputs": {
+      "source": [
+        "18",
+        0
+      ]
+    }
+  },
+  "21": {
+    "class_type": "PreviewAny",
+    "inputs": {
+      "source": [
+        "18",
+        1
+      ]
+    }
+  },
+  "22": {
+    "class_type": "PreviewAny",
+    "inputs": {
+      "source": [
+        "18",
+        2
+      ]
+    }
+  },
+  "23": {
+    "class_type": "ComfyMathExpression",
+    "inputs": {
+      "values.a": [
+        "3",
+        1
+      ],
+      "expression": "a"
+    }
+  },
+  "5": {
+    "class_type": "PreviewAny",
+    "inputs": {
+      "source": [
+        "3",
+        0
+      ]
+    }
+  },
+  "3": {
+    "class_type": "ComfyNumberConvert",
+    "inputs": {
+      "value": [
+        "2",
+        0
+      ]
+    }
+  },
+  "24": {
+    "class_type": "PreviewAny",
+    "inputs": {
+      "source": [
+        "23",
+        2
+      ]
+    }
+  },
+  "18": {
+    "class_type": "ComfyMathExpression",
+    "inputs": {
+      "values.a": [
+        "10",
+        0
+      ],
+      "expression": "a"
+    }
+  },
+  "9": {
+    "class_type": "PreviewAny",
+    "inputs": {
+      "source": [
+        "8",
+        0
+      ]
+    }
+  }
+}

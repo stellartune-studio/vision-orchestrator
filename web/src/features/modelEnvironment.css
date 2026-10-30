@@ -1,0 +1,6 @@
+.model-environment { margin: .7rem 0; padding: .8rem; border: 1px solid var(--line); border-radius: var(--radius, 8px); max-height: 65vh; overflow: auto; }
+.model-environment summary { cursor: pointer; font-weight: 600; padding: .4rem 0; }
+.model-environment label { display: block; margin: .6rem 0; overflow-wrap: anywhere; }
+.model-environment label > input:not([type=radio]):not([type=checkbox]), .model-environment select { display: block; max-width: 100%; width: 100%; margin-top: .25rem; }
+.model-environment button { margin: .3rem .5rem .3rem 0; }
+.model-environment dd { overflow-wrap: anywhere; margin-left: 1rem; }

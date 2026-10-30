@@ -1,0 +1,2 @@
+ALTER TABLE assets ADD COLUMN selection_version INTEGER NOT NULL DEFAULT 0;
+ALTER TABLE project_characters ADD COLUMN pin_version INTEGER NOT NULL DEFAULT 1;

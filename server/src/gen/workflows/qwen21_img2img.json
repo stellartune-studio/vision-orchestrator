@@ -1,0 +1,146 @@
+{
+  "prompt": {
+    "1": {
+      "class_type": "LoadImage",
+      "inputs": {
+        "image": "synthetic_red_barrier.png"
+      }
+    },
+    "2": {
+      "class_type": "UNETLoader",
+      "inputs": {
+        "unet_name": "qwen_image_2.1_turbo_int8_convrot.safetensors",
+        "weight_dtype": "default"
+      }
+    },
+    "3": {
+      "class_type": "CLIPLoader",
+      "inputs": {
+        "clip_name": "qwen3vl_8b_int8_convrot.safetensors",
+        "type": "qwen_image",
+        "device": "default"
+      }
+    },
+    "4": {
+      "class_type": "VAELoader",
+      "inputs": {
+        "vae_name": "qwen_image_2.1_vae_bf16.safetensors"
+      }
+    },
+    "5": {
+      "class_type": "QwenImage21Cache",
+      "inputs": {
+        "model": [
+          "2",
+          0
+        ],
+        "dtype": "default",
+        "device": "auto"
+      }
+    },
+    "6": {
+      "class_type": "TextEncodeQwenImage21",
+      "inputs": {
+        "prompt": "Change only the red barrier ribbon to deep blue. Keep its width, silhouette, gentle sag, surface texture, position, highlights and shadow unchanged. Keep both metal posts and bases, the neutral wall and floor, lighting, composition, and framing exactly as they are.",
+        "resolution": 0,
+        "vae": [
+          "4",
+          0
+        ],
+        "negative_prompt": "",
+        "images.image_1": [
+          "1",
+          0
+        ],
+        "clip": [
+          "3",
+          0
+        ]
+      }
+    },
+    "7": {
+      "class_type": "RandomNoise",
+      "inputs": {
+        "noise_seed": 891836227295375
+      }
+    },
+    "8": {
+      "class_type": "ManualSigmas",
+      "inputs": {
+        "sigmas": "1.0, 0.978453, 0.95418, 0.926626, 0.89508, 0.845148, 0.704534, 0.414568, 0"
+      }
+    },
+    "9": {
+      "class_type": "KSamplerSelect",
+      "inputs": {
+        "sampler_name": "euler"
+      }
+    },
+    "10": {
+      "class_type": "CFGGuider",
+      "inputs": {
+        "model": [
+          "5",
+          0
+        ],
+        "cfg": 1,
+        "negative": [
+          "6",
+          1
+        ],
+        "positive": [
+          "6",
+          0
+        ]
+      }
+    },
+    "11": {
+      "class_type": "SamplerCustomAdvanced",
+      "inputs": {
+        "latent_image": [
+          "6",
+          2
+        ],
+        "sampler": [
+          "9",
+          0
+        ],
+        "sigmas": [
+          "8",
+          0
+        ],
+        "noise": [
+          "7",
+          0
+        ],
+        "guider": [
+          "10",
+          0
+        ]
+      }
+    },
+    "12": {
+      "class_type": "VAEDecode",
+      "inputs": {
+        "samples": [
+          "11",
+          0
+        ],
+        "vae": [
+          "4",
+          0
+        ]
+      }
+    },
+    "13": {
+      "class_type": "SaveImage",
+      "inputs": {
+        "images": [
+          "12",
+          0
+        ],
+        "filename_prefix": "qwen21_smoke_20261016"
+      }
+    }
+  }
+}

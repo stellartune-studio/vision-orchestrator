@@ -1,0 +1,157 @@
+{
+ "source": "vendor/ComfyUI/ComfyUI/user/default/workflows (official ComfyUI templates)",
+ "converter": "scripts/comfy-ui2api.py",
+ "comfyui_version": "0.42.1",
+ "files": {
+  "audio_yue2_music_cover.json": {
+   "api_nodes": 13,
+   "models": [
+    "sheetsage2_bf16.safetensors",
+    "yue2_3b_int8_convrot.safetensors"
+   ],
+   "input_assets": [
+    "yue2_reference_song.flac"
+   ]
+  },
+  "audio_yue2_text2music.json": {
+   "api_nodes": 16,
+   "models": [
+    "yue2_3b_int8_convrot.safetensors"
+   ],
+   "input_assets": []
+  },
+  "basic_datatype_conversion.json": {
+   "api_nodes": 20,
+   "models": [],
+   "input_assets": []
+  },
+  "basic_mask_operations_and_compositing.json": {
+   "api_nodes": 37,
+   "models": [],
+   "input_assets": [
+    "example.png"
+   ]
+  },
+  "image_krea2_turbo_int8_image_style_reference.json": {
+   "api_nodes": 26,
+   "models": [
+    "krea2_style_reference.safetensors",
+    "krea2_turbo_int8_convrot.safetensors",
+    "qwen3vl_4b_fp8_scaled.safetensors",
+    "qwen_image_vae.safetensors"
+   ],
+   "input_assets": [
+    "krea2_reference_image.png"
+   ]
+  },
+  "image_moss_image_base_t2i.json": {
+   "api_nodes": 17,
+   "models": [
+    "flux2-vae_small.safetensors",
+    "moss_image_base_int8_convrot.safetensors",
+    "qwen3.5_9b_w4a8_gptq.safetensors"
+   ],
+   "input_assets": []
+  },
+  "image_moss_image_t2i_bboxes.json": {
+   "api_nodes": 20,
+   "models": [
+    "flux2-vae_small.safetensors",
+    "moss_image_sft_int8_convrot.safetensors",
+    "qwen3.5_9b_w4a8_gptq.safetensors"
+   ],
+   "input_assets": []
+  },
+  "image_qwen_image_2_1_turbo_image_edit.json": {
+   "api_nodes": 22,
+   "models": [
+    "qwen3.5_9b_qwen_image_2.1_pe_i2i.int8_convrot.safetensors",
+    "qwen3vl_8b_int8_convrot.safetensors",
+    "qwen_image_2.1_turbo_int8_convrot.safetensors",
+    "qwen_image_2.1_vae_bf16.safetensors"
+   ],
+   "input_assets": [
+    "ballet_dancer_photography_minimalist_architecture.png"
+   ]
+  },
+  "llm_qwen3vl_text_gen.json": {
+   "api_nodes": 4,
+   "models": [
+    "qwen3vl_4b_fp8_scaled.safetensors"
+   ],
+   "input_assets": [
+    "example.png"
+   ]
+  },
+  "utility_birefnet_remove_background.json": {
+   "api_nodes": 7,
+   "models": [
+    "birefnet.safetensors"
+   ],
+   "input_assets": [
+    "the_lily_veil.png"
+   ]
+  },
+  "utility_image_stitch.json": {
+   "api_nodes": 9,
+   "models": [],
+   "input_assets": [
+    "angle_1.png",
+    "angle_2.png",
+    "angle_3.png",
+    "angle_4.png"
+   ]
+  },
+  "utility_seedvr2_3b_int8_upscale_image.json": {
+   "api_nodes": 13,
+   "models": [
+    "seedvr2_3b_int8_convrot.safetensors",
+    "seedvr2_ema_vae_fp16.safetensors"
+   ],
+   "input_assets": [
+    "watch_macro_shot.png"
+   ]
+  },
+  "utility_seedvr2_3b_int8_upscale_video.json": {
+   "api_nodes": 20,
+   "models": [
+    "seedvr2_3b_int8_convrot.safetensors",
+    "seedvr2_ema_vae_fp16.safetensors"
+   ],
+   "input_assets": [
+    "grainy_perfume_shot_crf32.mp4"
+   ]
+  },
+  "utility_video_frame_interpolation.json": {
+   "api_nodes": 10,
+   "models": [
+    "film_net_fp16.safetensors"
+   ],
+   "input_assets": [
+    "white_armored_warrior.mp4"
+   ]
+  },
+  "video_fastvideo_fasth3_i2v.json": {
+   "api_nodes": 22,
+   "models": [
+    "fastvideo_fasth3_8step_v2_pruned_int8_convrot.safetensors",
+    "minimax_h3_audio_vae_fp32.safetensors",
+    "minimax_h3_video_vae_int8_convrot.safetensors",
+    "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors"
+   ],
+   "input_assets": [
+    "red_line_barrier.png"
+   ]
+  },
+  "video_fastvideo_fasth3_t2v.json": {
+   "api_nodes": 20,
+   "models": [
+    "fastvideo_fasth3_8step_v2_pruned_int8_convrot.safetensors",
+    "minimax_h3_audio_vae_fp32.safetensors",
+    "minimax_h3_video_vae_int8_convrot.safetensors",
+    "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors"
+   ],
+   "input_assets": []
+  }
+ }
+}

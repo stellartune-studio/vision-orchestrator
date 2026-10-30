@@ -1,0 +1,68 @@
+{
+  "17": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "the_lily_veil.png",
+      "upload": "image"
+    }
+  },
+  "19_13": {
+    "class_type": "RemoveBackground",
+    "inputs": {
+      "bg_removal_model": [
+        "19_14",
+        0
+      ],
+      "image": [
+        "17",
+        0
+      ]
+    }
+  },
+  "19_14": {
+    "class_type": "LoadBackgroundRemovalModel",
+    "inputs": {
+      "bg_removal_name": "birefnet.safetensors"
+    }
+  },
+  "19_15": {
+    "class_type": "InvertMask",
+    "inputs": {
+      "mask": [
+        "19_13",
+        0
+      ]
+    }
+  },
+  "19_16": {
+    "class_type": "JoinImageWithAlpha",
+    "inputs": {
+      "image": [
+        "17",
+        0
+      ],
+      "alpha": [
+        "19_15",
+        0
+      ]
+    }
+  },
+  "18": {
+    "class_type": "PreviewImage",
+    "inputs": {
+      "images": [
+        "19_16",
+        0
+      ]
+    }
+  },
+  "20": {
+    "class_type": "MaskPreview",
+    "inputs": {
+      "mask": [
+        "19_13",
+        0
+      ]
+    }
+  }
+}

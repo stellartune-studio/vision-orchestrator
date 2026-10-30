@@ -1,0 +1,1 @@
+ALTER TABLE mv_plans ADD COLUMN clips_json TEXT NOT NULL DEFAULT '[]';
